@@ -13,7 +13,7 @@
             steps:
                 
                 - run: |
-                    echo ${{secrets.SSH_PRIVATE_KEY}} &> ~/shh_key
+                    echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/shh_key
                     ssh -i ~/shh_key root@128.199.29.186
                     cd ci-next-app && git pull
                     pnpm install
