@@ -14,6 +14,7 @@
                 
                 - run: |
                     echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/shh_key
+                    echo "${{secrets.KNOWN_HOSTS}}" &> ~/.ssh/known_hosts
                     ssh -i ~/shh_key root@128.199.29.186
                     cd ci-next-app && git pull
                     pnpm install
