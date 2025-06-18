@@ -19,13 +19,7 @@
                     touch /home/runner/.ssh/known_hosts
                     echo "${{secrets.KNOWN_HOSTS}}" &> ~/.ssh/known_hosts
                     chmod 700 ~/shh_key
-                    ssh -i ~/shh_key root@128.199.29.186
-                    cd ci-next-app && git pull
-                    pnpm install
-                    pnpm run build
-                    pm2 restart fe-server
-                    pm2 restart http-server
-                    pm2 restart ws-server
-
+                    ssh -i ~/shh_key root@128.199.29.186 -t "cd ci-next-app && git pull origin main && pnpm install && pnpm run build && pm2 restart fe-server && pm2 restart http-server && pm2 restart ws-server"
+                    
 
               
